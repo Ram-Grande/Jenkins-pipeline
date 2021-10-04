@@ -1,0 +1,15 @@
+pipeline {
+    agent any
+    stages {
+        stage('Pod restart script') {
+            steps {
+                script {
+                    sh  '''
+                        /var/lib/jenkins/script.sh $Number $Replicaset $Namespace
+                    '''
+                }
+            }
+        }
+    }
+
+}
